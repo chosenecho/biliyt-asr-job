@@ -1,0 +1,11 @@
+[Unit]
+Description=Daily 08:03 video ASR pipeline timer (offset from hourly :00 biliyt-sync)
+
+[Timer]
+OnCalendar=*-*-* 08:03:00
+AccuracySec=1s
+Persistent=true
+Unit=biliyt-asr.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,16 @@
+[Unit]
+Description=Daily low-res video download, audio extraction, Qwen3-ASR transcription, and video cleanup
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/biliyt-asr-job
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+Environment=PYTHONUNBUFFERED=1
+ExecStartPre=/bin/mkdir -p /opt/biliyt-asr-job/runtime/logs
+ExecStart=/usr/bin/python3 /opt/biliyt-asr-job/run_daily_asr.py
+StandardOutput=append:/opt/biliyt-asr-job/runtime/logs/daily_asr.log
+StandardError=append:/opt/biliyt-asr-job/runtime/logs/daily_asr.log
+Nice=10
+TimeoutStartSec=4h

@@ -1,0 +1,18 @@
+# Local overrides & runtime artifacts
+job.yaml
+runtime/
+logs/
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+
+# OS / Editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

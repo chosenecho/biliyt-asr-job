@@ -1,0 +1,27 @@
+# Optional local configuration override for run_daily_asr.py.
+# Copy to `job.yaml` and adjust paths/parameters as needed.
+# All fields are optional; CLI flags take precedence over job.yaml.
+
+biliyt_config: /opt/biliyt/config.yaml
+biliyt_bin: /usr/local/bin/biliyt
+asr_dir: /opt/qwen3-asr-pipeline
+python_bin: python3
+runtime_dir: /opt/biliyt-asr-job/runtime
+
+# Video download override (low-res video + best audio via biliyt/yt-dlp)
+max_height: 360
+
+# ASR extraction & transcription settings
+audio_preset: asr-mp3
+extract_workers: 4
+endpoint: modal
+asr_concurrency: 4
+save_json: true
+
+# Timeouts & lock coordination
+warmup_timeout: 120
+warmup_retries: 2
+asr_timeout: 300
+task_timeout: 7200
+lock_wait_seconds: 300
+lock_retry_interval: 15
